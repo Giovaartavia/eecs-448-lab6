@@ -4,7 +4,6 @@
 #include <iostream>
 #include <vector>
 #include "LinkedListOfInts.h"
-#include "Node.h"
 
 class TestSuite
 {
@@ -12,6 +11,8 @@ class TestSuite
 
   void runTests();
   void testIsEmpty();
+  void testIsEmptyWithRemoveBack();
+  void testIsEmptyWithRemoveFront();
   void testSizeWithAddBack();
   void testSizeWithAddFront();
   void testSearchWithAddBack();
@@ -23,6 +24,7 @@ class TestSuite
   void testRemoveBackFromEmptyList();
   void testRemoveFrontFromEmptyList();
   void testAddBack();
+  void testAddFront();
 };
 
 #endif

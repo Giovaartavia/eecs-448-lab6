@@ -1,0 +1,5 @@
+List of purposely inserted bugs:
+
+1. isEmpty is always true.
+2. removeFront and removeBack do nothing. This includes not removing anything and not affecting the size of the list. They also always return false.
+3. addFront adds elements in disorder. It works just like addBack.

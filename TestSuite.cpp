@@ -5,6 +5,10 @@ void TestSuite::runTests()
   std::cout << "\n\n ******RUNNNING TESTS******\n";
   testIsEmpty();
   std::cout << '\n';
+  testIsEmptyWithRemoveBack();
+  std::cout << '\n';
+  testIsEmptyWithRemoveFront();
+  std::cout << '\n';
   testSizeWithAddBack();
   std::cout << '\n';
   testSizeWithAddFront();
@@ -24,10 +28,13 @@ void TestSuite::runTests()
   testRemoveBackFromEmptyList();
   std::cout << '\n';
   testRemoveFrontFromEmptyList();
+  std::cout << '\n';
+  testAddBack();
+  std::cout << '\n';
+  testAddFront();
+
   std::cout << "\n\n ******END OF TESTS******\n";
 }
-
-
 
 void TestSuite::testIsEmpty()
 {
@@ -70,6 +77,44 @@ void TestSuite::testIsEmpty()
   //delete list;
 }
 
+void TestSuite::testIsEmptyWithRemoveBack()
+{
+  LinkedListOfInts list;
+
+  //Check if isEmpty returns true after adding and removing a node using removeBack.
+
+  list.addBack(1);
+  list.removeBack();
+
+  if(list.isEmpty())
+  {
+    std::cout << "Test isEmpty after adding and removing back: Passed!\n";
+  }
+  else
+  {
+    std::cout << "Test isEmpty after adding and removing back: Failed\n";
+  }
+}
+
+void TestSuite::testIsEmptyWithRemoveFront()
+{
+  LinkedListOfInts list;
+
+  //Check if isEmpty returns true after adding and removing a node using removeFront.
+
+  list.addFront(1);
+  list.removeFront();
+
+  if(list.isEmpty())
+  {
+    std::cout << "Test isEmpty after adding and removing front: Passed!\n";
+  }
+  else
+  {
+    std::cout << "Test isEmpty after adding and removing front: Failed\n";
+  }
+}
+
 void TestSuite::testSizeWithAddBack()
 {
   LinkedListOfInts list;
@@ -83,10 +128,6 @@ void TestSuite::testSizeWithAddBack()
   {
     std::cout << "Test size on empty list: Falied\n";
   }
-
-  //Check what happens upon removing an element of an empty list
-  //list.removeBack();
-  //std::cout << list.size();
 
   //Check if correct size on list with one element using addBack
   list.addBack(1);
@@ -151,7 +192,8 @@ void TestSuite::testSizeWithAddFront()
   //Check if correct size after removeFront
   list.removeFront();
   if(list.size() == 1)
-  {
+  {std::vector<int> v = list.toVector();
+
     std::cout << "Test size on list after removeFront: Passed!\n";
   }
   else
@@ -178,7 +220,7 @@ void TestSuite::testSearchWithAddBack()
   list.addBack(1);
   if(!list.search(5))
   {
-    std::cout << "Test Search of wrong value in a list with 1 eltestRemoveFrontUsingAddBackement added with addBack: Passed!\n";
+    std::cout << "Test Search of wrong value in a list with 1 element added with addBack: Passed!\n";
   }
   else
   {
@@ -400,26 +442,19 @@ void TestSuite::testRemoveFrontFromEmptyList()
 
 void TestSuite::testAddBack()
 {
-  /*LinkedListOfInts list;
+  LinkedListOfInts list;
 
-  Node<int>* front = nullptr;
-  Node<int>* temp = nullptr;
-  list.addBack(1);*/
 
-  //list.addBack(2);
-  //list.addBack(3);
+  list.addBack(1);
+  list.addBack(2);
+  list.addBack(3);
+
+  std::vector<int> v = list.toVector();
 
   //Get entries at each position and check if addBack is actually adding to the back of the list
 
-  //Node<int>* backNode = new Node<int>();
-  /*int value1 = temp->getValue();
-  temp->getNext();
-  int value2 = temp->getValue();
-  temp->getNext();
-  int value3 = temp->getValue();
-
   //Check first value
-  if(value1 == 3)
+  if(v[0] == 3)
   {
     std::cout << "addBack has correct order for first value: Passed!\n";
   }
@@ -429,26 +464,66 @@ void TestSuite::testAddBack()
   }
 
   //Check second value
-  if(value2 == 2)
+  if(v[1] == 2)
   {
     std::cout << "addBack has correct order for second value: Passed!\n";
   }
   else
   {
     std::cout << "addBack has correct order for second value: Failed\n";
-    std::cout << value2;
   }
 
   //Check third value
-  if(value3 == 1)
+  if(v[2] == 1)
   {
     std::cout << "addBack has correct order for final value: Passed!\n";
   }
   else
   {
     std::cout << "addBack has correct order for final value: Failed\n";
-    std::cout << value3;
-  }*/
+  }
 }
 
-//TODO: Check is order is maintained when addBack and addFront are used.
+void TestSuite::testAddFront()
+{
+  LinkedListOfInts list;
+
+
+  list.addFront(1);
+  list.addFront(2);
+  list.addFront(3);
+
+  std::vector<int> v = list.toVector();
+
+  //Get entries at each position and check if addBack is actually adding to the back of the list
+
+  //Check first value
+  if(v[0] == 1)
+  {
+    std::cout << "addFront has correct order for first value: Passed!\n";
+  }
+  else
+  {
+    std::cout << "addFront has correct order for first value: Failed\n";
+  }
+
+  //Check second value
+  if(v[1] == 2)
+  {
+    std::cout << "addFront has correct order for second value: Passed!\n";
+  }
+  else
+  {
+    std::cout << "addFront has correct order for second value: Failed\n";
+  }
+
+  //Check third value
+  if(v[2] == 3)
+  {
+    std::cout << "addFront has correct order for final value: Passed!\n";
+  }
+  else
+  {
+    std::cout << "addFront has correct order for final value: Failed\n";
+  }
+}
