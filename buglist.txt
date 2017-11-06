@@ -2,4 +2,5 @@ List of purposely inserted bugs:
 
 1. isEmpty is always true.
 2. removeFront and removeBack do nothing. This includes not removing anything and not affecting the size of the list. They also always return false.
-3. addFront adds elements in disorder. It works just like addBack.
+3. addBack adds elements in disorder. It does the same as addFront
+4. The list allows for doubles to be given as input but it converts them to ints. Still, doubles are allowed to be given to the list.

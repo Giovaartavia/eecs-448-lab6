@@ -32,6 +32,10 @@ void TestSuite::runTests()
   testAddBack();
   std::cout << '\n';
   testAddFront();
+  std::cout << '\n';
+  testValidValueForAddBack();
+  std::cout << '\n';
+  testValidValueForAddFront();
 
   std::cout << "\n\n ******END OF TESTS******\n";
 }
@@ -454,7 +458,7 @@ void TestSuite::testAddBack()
   //Get entries at each position and check if addBack is actually adding to the back of the list
 
   //Check first value
-  if(v[0] == 3)
+  if(v[0] == 1)
   {
     std::cout << "addBack has correct order for first value: Passed!\n";
   }
@@ -474,7 +478,7 @@ void TestSuite::testAddBack()
   }
 
   //Check third value
-  if(v[2] == 1)
+  if(v[2] == 3)
   {
     std::cout << "addBack has correct order for final value: Passed!\n";
   }
@@ -498,7 +502,7 @@ void TestSuite::testAddFront()
   //Get entries at each position and check if addBack is actually adding to the back of the list
 
   //Check first value
-  if(v[0] == 1)
+  if(v[0] == 3)
   {
     std::cout << "addFront has correct order for first value: Passed!\n";
   }
@@ -518,7 +522,7 @@ void TestSuite::testAddFront()
   }
 
   //Check third value
-  if(v[2] == 3)
+  if(v[2] == 1)
   {
     std::cout << "addFront has correct order for final value: Passed!\n";
   }
@@ -526,4 +530,42 @@ void TestSuite::testAddFront()
   {
     std::cout << "addFront has correct order for final value: Failed\n";
   }
+}
+
+void TestSuite::testValidValueForAddBack()
+{
+  LinkedListOfInts list;
+
+  //Test adding a double instead of an int with addBack
+  list.addBack(2.5);
+  std::vector<int> v = list.toVector();
+  if(v[0] != 2.5)
+  {
+    std::cout << "addBack does not allow for doubles: Passed!";
+  }
+  else
+  {
+    std::cout << "addBack does not allow for doubles: Failed";
+  }
+
+  //Note that other values were attempted but they would generate errors. Chars work and they give the ascii values of the given char.
+}
+
+void TestSuite::testValidValueForAddFront()
+{
+  LinkedListOfInts list;
+  
+  //Test adding a double instead of an int with addBack
+  list.addFront(2.5);
+  std::vector<int> v = list.toVector();
+  if(v[0] != 2.5)
+  {
+    std::cout << "addBack does not allow for doubles: Passed!";
+  }
+  else
+  {
+    std::cout << "addBack does not allow for doubles: Failed";
+  }
+  
+  //Note that other values were attempted but they would generate errors. Chars work and they give the ascii values of the given char.
 }

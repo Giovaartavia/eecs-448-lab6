@@ -25,6 +25,8 @@ class TestSuite
   void testRemoveFrontFromEmptyList();
   void testAddBack();
   void testAddFront();
+  void testValidValueForAddBack();
+  void testValidValueForAddFront();
 };
 
 #endif
