@@ -539,7 +539,7 @@ void TestSuite::testValidValueForAddBack()
   //Test adding a double instead of an int with addBack
   list.addBack(2.5);
   std::vector<int> v = list.toVector();
-  if(v[0] != 2.5)
+  if(v[0] == 2)
   {
     std::cout << "addBack does not allow for doubles: Passed!";
   }
@@ -554,11 +554,11 @@ void TestSuite::testValidValueForAddBack()
 void TestSuite::testValidValueForAddFront()
 {
   LinkedListOfInts list;
-  
+
   //Test adding a double instead of an int with addBack
   list.addFront(2.5);
   std::vector<int> v = list.toVector();
-  if(v[0] != 2.5)
+  if(v[0] == 2)
   {
     std::cout << "addBack does not allow for doubles: Passed!";
   }
@@ -566,6 +566,6 @@ void TestSuite::testValidValueForAddFront()
   {
     std::cout << "addBack does not allow for doubles: Failed";
   }
-  
+
   //Note that other values were attempted but they would generate errors. Chars work and they give the ascii values of the given char.
 }
