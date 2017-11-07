@@ -1,43 +1,67 @@
+/**
+*	@author Giovanni Artavia
+*	@date 11/6/2017
+*	@file TestSuite.cpp
+*	@brief Contains all the test functions for LinkedListOfInts
+*/
+
 #include "TestSuite.h"
 
 void TestSuite::runTests()
 {
-  std::cout << "\n\n ******RUNNNING TESTS******\n";
+  std::cout << "\n ******RUNNNING TESTS******\n";
+  std::cout << "testIsEmpty: \n";
   testIsEmpty();
   std::cout << '\n';
+  std::cout << "testIsEmptyWithRemoveBack: \n";
   testIsEmptyWithRemoveBack();
   std::cout << '\n';
+  std::cout << "testIsEmptyWithRemoveFront: \n";
   testIsEmptyWithRemoveFront();
   std::cout << '\n';
+  std::cout << "testSizeWithAddBack: \n";
   testSizeWithAddBack();
   std::cout << '\n';
+  std::cout << "testSizeWithAddFront: \n";
   testSizeWithAddFront();
   std::cout << '\n';
+  std::cout << "testSearchWithAddBack: \n";
   testSearchWithAddBack();
   std::cout << '\n';
+  std::cout << "testSearchWithAddFront: \n";
   testSearchWithAddFront();
   std::cout << '\n';
+  std::cout << "testRemoveFrontUsingAddBack: \n";
   testRemoveFrontUsingAddBack();
   std::cout << '\n';
+  std::cout << "testRemoveFrontUsingAddFront: \n";
   testRemoveFrontUsingAddFront();
   std::cout << '\n';
+  std::cout << "testRemoveBackUsingAddBack: \n";
   testRemoveBackUsingAddBack();
   std::cout << '\n';
+  std::cout << "testRemoveBackUsingAddFront: \n";
   testRemoveBackUsingAddFront();
   std::cout << '\n';
+  std::cout << "testRemoveBackFromEmptyList: \n";
   testRemoveBackFromEmptyList();
   std::cout << '\n';
+  std::cout << "testRemoveFrontFromEmptyList: \n";
   testRemoveFrontFromEmptyList();
   std::cout << '\n';
+  std::cout << "testAddBack: \n";
   testAddBack();
   std::cout << '\n';
+  std::cout << "testAddFront: \n";
   testAddFront();
   std::cout << '\n';
+  std::cout << "testValidValueForAddBack: \n";
   testValidValueForAddBack();
   std::cout << '\n';
+  std::cout << "testValidValueForAddFront: \n";
   testValidValueForAddFront();
 
-  std::cout << "\n\n ******END OF TESTS******\n";
+  std::cout << "\n******END OF TESTS******\n";
 }
 
 void TestSuite::testIsEmpty()
@@ -78,7 +102,6 @@ void TestSuite::testIsEmpty()
     std::cout << "test isEmpty on list with multiple elements: Failed\n";
   }
 
-  //delete list;
 }
 
 void TestSuite::testIsEmptyWithRemoveBack()
@@ -241,7 +264,7 @@ void TestSuite::testSearchWithAddBack()
     std::cout << "Test Search of right value in a list with 1 element added with addBack: Failed\n";
   }
 
-  //Add second element using addBack
+  //Add second element using addBack and search for right value
   list.addBack(2);
   if(list.search(2))
   {
@@ -252,7 +275,7 @@ void TestSuite::testSearchWithAddBack()
     std::cout << "Test Search of right value in a list with 2 elements with addBack: Failed\n";
   }
 
-  //Test multiple of the same element in  else list
+  //Test multiple of the same correct element in list
   list.addBack(1);
   if(list.search(1))
   {
@@ -289,7 +312,7 @@ void TestSuite::testSearchWithAddFront()
     std::cout << "Test Search of right value in a list with 1 element added with addFront: Failed\n";
   }
 
-  //Add second element using addBack
+  //Add second element using addFront and search for right value
   list.addFront(2);
   if(list.search(2))
   {
@@ -499,7 +522,7 @@ void TestSuite::testAddFront()
 
   std::vector<int> v = list.toVector();
 
-  //Get entries at each position and check if addBack is actually adding to the back of the list
+  //Get entries at each position and check if addFront is actually adding to the front of the list
 
   //Check first value
   if(v[0] == 3)
@@ -541,11 +564,11 @@ void TestSuite::testValidValueForAddBack()
   std::vector<int> v = list.toVector();
   if(v[0] == 2)
   {
-    std::cout << "addBack does not allow for doubles: Passed!";
+    std::cout << "addBack does not allow for doubles: Passed!\n";
   }
   else
   {
-    std::cout << "addBack does not allow for doubles: Failed";
+    std::cout << "addBack does not allow for doubles: Failed\n";
   }
 
   //Note that other values were attempted but they would generate errors. Chars work and they give the ascii values of the given char.
@@ -555,16 +578,16 @@ void TestSuite::testValidValueForAddFront()
 {
   LinkedListOfInts list;
 
-  //Test adding a double instead of an int with addBack
+  //Test adding a double instead of an int with addFront
   list.addFront(2.5);
   std::vector<int> v = list.toVector();
   if(v[0] == 2)
   {
-    std::cout << "addBack does not allow for doubles: Passed!";
+    std::cout << "addBack does not allow for doubles: Passed!\n";
   }
   else
   {
-    std::cout << "addBack does not allow for doubles: Failed";
+    std::cout << "addBack does not allow for doubles: Failed\n";
   }
 
   //Note that other values were attempted but they would generate errors. Chars work and they give the ascii values of the given char.

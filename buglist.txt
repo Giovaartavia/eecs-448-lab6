@@ -3,3 +3,4 @@ List of purposely inserted bugs:
 1. isEmpty always returns true.
 2. removeFront and removeBack do nothing. This includes not removing anything and not affecting the size of the list. They also always return false.
 3. addBack adds elements in disorder. addBack works exactly like addFront by adding elements to the front.
+4. Found memory leaks after the creation of a list object. This means that there is a problem in the deconstructor that is leaving nodes undeleted.
